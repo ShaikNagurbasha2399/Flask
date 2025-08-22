@@ -11,7 +11,7 @@ model = joblib.load("model.pkl")
 
 
 app = Flask(__name__)
-CORS(app)  # enables CORS for all routes
+CORS(app, resources={r"/predict": {"origins": "*"}}, supports_credentials=True)
 
 
 @app.route("/predict", methods=["POST"])
