@@ -3,12 +3,16 @@ from flask import Flask, request, jsonify
 import numpy as np
 import os
 import joblib
+from flask_cors import CORS
+
 
 # Load trained model safely
 model = joblib.load("model.pkl")
 
 
 app = Flask(__name__)
+CORS(app)  # enables CORS for all routes
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
