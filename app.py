@@ -24,9 +24,9 @@ def predict():
         prev_acc = float(data.get("prev_acc"))
 
         # Derived values
-        desired_speed = prev_speed + 10
-        desired_acc = 95
-        time = 10  
+        desired_speed = int(data.get("desired_speed"))
+        desired_acc = int(data.get("desired_acc"))
+        time = int(data.get("time"))
 
         # Arrange features in the same order as used during training
         features = np.array([[prev_speed, prev_acc, desired_speed, desired_acc, time]])
